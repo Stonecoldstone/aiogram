@@ -275,8 +275,8 @@ class MediaGroup(base.TelegramObject):
                 media = InputMediaDocument(**media)
             elif media_type == 'audio':
                 media = InputMediaAudio(**media)
-            # elif media_type == 'animation':
-            #     media = InputMediaAnimation(**media)
+            elif media_type == 'animation':
+                media = InputMediaAnimation(**media)
             else:
                 raise TypeError(f"Invalid media type '{media_type}'!")
 
@@ -288,7 +288,6 @@ class MediaGroup(base.TelegramObject):
 
         self.media.append(media)
 
-    '''
     def attach_animation(self, animation: base.InputFile,
                          thumb: typing.Union[base.InputFile, base.String] = None,
                          caption: base.String = None,
@@ -310,7 +309,6 @@ class MediaGroup(base.TelegramObject):
                                             width=width, height=height, duration=duration,
                                             parse_mode=parse_mode)
         self.attach(animation)
-    '''
 
     def attach_audio(self, audio: typing.Union[InputMediaAudio, base.InputFile],
                      thumb: typing.Union[base.InputFile, base.String] = None,
